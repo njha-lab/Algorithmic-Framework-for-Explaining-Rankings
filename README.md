@@ -88,6 +88,14 @@ In addition to --items and --tk, we have:
 - `--final_weights {extract,wtop}` (**extract**): how the final weight vector is obtained
 - `--lp_margin {strict,free}` (**strict**)
 
+### LR (`code_LR.py`)
+Simplex-constrained weighted least squares: the target falls linearly from `--lr_high` (rank 1) to `--lr_low` (rank k) and is `--lr_low` outside the top-k;
+the weights of the rows are `--lr_topk_weight` (top-k) and `--lr_outsider_weight` (outside).
+```bash
+python code_LR.py --dataset reco_thurstone --items 10000 --tk 5 --lr_baseline weighted
+```
+`--lr_baseline` (**weighted**), `--lr_high` (**1.0**), `--lr_low` (**0.0**), `--lr_topk_weight` (**1.0**), `--lr_outsider_weight` (**0.1**).
+
 # SVMrank (baselines/RankSVM)
 
 Joachims' SVMrank with wrapper scripts (`Scripts/run_svmrank.py`, `csv_to_svmrank.py`, `evaluation.py`, `config.py`), modified for our setting:
