@@ -100,3 +100,4 @@ python Scripts/run_svmrank.py --dataset jee_fileorder_ranksvm.csv --features cat
 python Scripts/run_svmrank.py --dataset reco_thurstone_ranksvm.csv --features relevance_score popularity freshness predicted_ctr quality_score price diversity_tag --ranking rank --mode topk --k 100 --n 1000 --C 20
 ```
 - The features are min-max scaled (SVMrank does not converge on the raw ones), so the printed PP is in scaled units; `python Scripts/svmrank_raw_pp.py --raw_csv ../../data/reco_thurstone.csv` gives PP in raw units.
+
